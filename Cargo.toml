@@ -1,0 +1,41 @@
+[package]
+name = "flashbang"
+version = "0.1.0-prealpha"
+edition = "2021"
+
+[dependencies]
+async-trait = "0.1"
+bytes = "1.3"
+cfg-if = "1.0"
+crc32fast = "1.3"
+futures = "0.3"
+hmac = "0.12"
+log = "0.4"
+md-5 = "0.10"
+rand = "0.8"
+sha1 = "0.10"
+sha2 = "0.10"
+socket2 = { version = "0.4", features = ["all"] }
+once_cell = "1.17"
+
+tokio = { version = "1", features = ["full"], optional = true }
+
+# server binary dependencies
+argh = { version = "0.1", optional = true }
+ctrlc = { version = "3.2", features = ["termination"], optional = true }
+env_logger = { version = "0.10", optional = true }
+
+[dev-dependencies]
+# for testing compatibility
+stun = "0.4"
+
+[features]
+default = ["async_tokio"]
+async_tokio = ["tokio"]
+
+# for building the server binary
+server_binary = ["argh", "ctrlc", "env_logger"]
+
+[[bin]]
+name = "flashbang"
+required-features = ["server_binary"]
