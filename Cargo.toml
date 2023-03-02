@@ -1,7 +1,13 @@
 [package]
 name = "flashbang"
+description = "A Rust crate for the STUN/TURN protocol."
 version = "0.1.0-prealpha"
 edition = "2021"
+authors = ["JonahPlusPlus <33059163+JonahPlusPlus@users.noreply.github.com>"]
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/flashbang"
+homepage = "https://github.com/JonahPlusPlus/flashbang"
+repository = "https://github.com/JonahPlusPlus/flashbang"
 
 [dependencies]
 async-trait = "0.1"
